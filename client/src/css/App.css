@@ -1,5 +1,11 @@
 .page{
     display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+.form{
+    width: 80%;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
@@ -14,7 +20,13 @@
 #person-img{
     width: 3%;
     height: auto;
-    margin-top: 1%;
+}
+#close-img{
+    width: 2.5%;
+    height: auto;
+    align-self: flex-end;
+    margin-right: 10%;
+    margin-top: 2%;
 }
 h1{
     padding: 0;

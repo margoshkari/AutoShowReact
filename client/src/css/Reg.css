@@ -1,27 +1,8 @@
-.page{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.reg-fields{
-    display: flex;
-    flex-direction: column;
-    width: 20%;
-}
 label{
     margin-top: 10%;
 }
-input{
-    width:auto;
-    height: 4vh;
-    outline:none;
-}
-h1{
-    padding: 0;
-    margin: 0;
-}
 #register-btn{
-    width: 20%;
+    width: 100%;
     height: 5vh;;
     border: none;
     color: white;

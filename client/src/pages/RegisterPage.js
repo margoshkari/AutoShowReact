@@ -2,6 +2,7 @@ import '../css/Reg.css'
 import InputMask from 'react-input-mask';
 import {useState} from 'react';
 import logo from "../source/person-outline.svg"
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
 function RegisterApp(){
     const [phone, setPhone] = useState('');
@@ -10,7 +11,7 @@ function RegisterApp(){
         <div className="page">
             <img id="person-img" src={logo}></img>
             <h1>Реєстрація</h1>
-            <div className="reg-fields">
+            <div className="fields">
                 <label>Ім'я</label>
                 <input type="text"></input>
                 <label>Прізвище</label>
@@ -25,7 +26,9 @@ function RegisterApp(){
                     onChange={handleInput}>
                 </PhoneInput>
             </div>
-            <button id="register-btn">ЗАРЕЄСТРУВАТИСЯ</button>
+                <Link class="link" to="/login">
+                  <button id="register-btn">ЗАРЕЄСТРУВАТИСЯ</button>
+                </Link>
         </div>
     )
 }

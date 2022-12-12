@@ -1,0 +1,32 @@
+.page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.fields{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+label{
+    margin-top: 10%;
+}
+input{
+    width:auto;
+    height: 3vh;
+    outline:none;
+}
+h1{
+    padding: 0;
+    margin: 0;
+}
+#register-btn{
+    width: 20%;
+    height: 5vh;;
+    border: none;
+    color: white;
+    margin-top: 5%;
+    font-weight: bold;
+    font-size: 17px;
+    background-color: rgb(184, 35, 35);
+}

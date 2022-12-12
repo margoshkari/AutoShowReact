@@ -1,14 +1,16 @@
 import '../css/Reg.css'
 import InputMask from 'react-input-mask';
 import {useState} from 'react';
+import logo from "../source/person-outline.svg"
 
 function RegisterApp(){
     const [phone, setPhone] = useState('');
     const handleInput = ({ target: { value } }) => setPhone(value);
     return (
         <div className="page">
+            <img id="person-img" src={logo}></img>
             <h1>Реєстрація</h1>
-            <div className="fields">
+            <div className="reg-fields">
                 <label>Ім'я</label>
                 <input type="text"></input>
                 <label>Прізвище</label>

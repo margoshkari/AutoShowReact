@@ -1,0 +1,49 @@
+.log-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.fields{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+#login-btn{
+    width: 20%;
+    height: 5vh;;
+    border: none;
+    color: white;
+    margin-top: 4%;
+    font-weight: bold;
+    font-size: 17px;
+    background-color: rgb(184, 35, 35);
+}
+#login-btn:hover{
+    background-color: white;
+    border: 1px solid rgb(184, 35, 35);
+    color: rgb(184, 35, 35);
+}
+#reg-btn{
+    width: 20%;
+    height: 5vh;;
+    border: none;
+    color: white;
+    margin-top: 1%;
+    font-weight: bold;
+    font-size: 17px;
+    background-color: white;
+    border: 1px solid rgb(134, 134, 134);
+    color: rgb(134, 134, 134);
+}
+#reg-btn:hover{
+    background-color: rgb(134, 134, 134);
+    color: rgba(255, 255, 255);
+}
+#info{
+    margin-top: 3%;
+}
+#person-img{
+    width: 3%;
+    height: auto;
+    margin-top: 1%;
+}

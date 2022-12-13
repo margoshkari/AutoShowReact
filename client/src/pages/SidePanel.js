@@ -1,5 +1,6 @@
 import "../css/Home.css";
 import "../css/Side.css";
+import down from "../source/chevron-down-outline.svg"
 
 function SidePanelApp(){
     return(
@@ -8,12 +9,13 @@ function SidePanelApp(){
                 <h4>ПІДБІР АВТОМОБІЛЯ</h4>
             </div>
             <div className="filters">
-                <div className="price-filter">
-                    <span className="price-sp">ЦІНА, ГРН</span>
+                {/*PRICE FILTER */}
+                <div className="filter">
+                    <span className="sp">ЦІНА, ГРН</span>
                     <div className="price-inp">
-                        <input type="number" id="min-price-inp"></input>
+                        <input type="number" className="filter-inp" id="min-price-inp"></input>
                         <span> <b>-</b> </span>
-                        <input type="number" id="max-price-inp"></input>
+                        <input type="number" className="filter-inp" id="max-price-inp"></input>
                     </div>
                     <div className="line-filter"></div>
                     <div>
@@ -28,20 +30,73 @@ function SidePanelApp(){
                     </div>
                     <div className="line-filter"></div>
                 </div>
-                <div className="year-filter">
-                    <span className="year-sp">РІК</span>
+                {/*YEAR FILTER */}
+                <div className="filter">
+                    <span className="sp">РІК</span>
                     <div className="year-inp">
-                        <select name="years" id="min-year">
+                        <select name="years" className="filter-inp" id="min-year">
                             <option selected disabled value='' hidden="hidden"></option>
                             <option value="2022">2022</option>
                             <option value="2021">2021</option>
                         </select>
-                        <span> <b>-</b> </span>
-                        <select name="years" id="max-year">
+                        <span>  </span>
+                        <select name="years" className="filter-inp" id="max-year">
                             <option selected disabled value='' hidden="hidden"></option>
                             <option value="2022">2022</option>
                             <option value="2021">2021</option>
                         </select>
+                    </div>
+                    <div className="line-filter"></div>
+                </div>
+                {/*PROBIG FILTER */}
+                <div className="filter">
+                    <span className="sp">ПРОБІГ, КМ</span>
+                    <div className="prob-inp">
+                        <input type="number" className="filter-inp" id="min-price-inp" placeholder="Пробіг від"></input>
+                        <span> </span>
+                        <input type="number" className="filter-inp" id="max-price-inp" placeholder="Пробіг до"></input>
+                    </div>
+                    <div className="line-filter"></div>
+                </div>
+                {/*BRAND FILTER */}
+                 <div className="filter brand-filter">
+                    <span className="sp im">МАРКА <img src={down} id="down-img" alt="not found"  draggable="false"></img></span>
+                    <div className="brand">
+                       <ul className="filter-list">
+                            <li>
+                                <div className="checks">
+                                    <input type="checkbox"></input>
+                                    <label>Audi</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div className="checks">
+                                    <input type="checkbox"></input>
+                                    <label>BMW</label>
+                                </div>
+                            </li>
+                       </ul>
+                    </div>
+                    <div className="line-filter"></div>
+                </div>
+                {/*BODY TYPE*/}
+                <div className="filter body-filter">
+                    <span className="sp im">ТИП КУЗОВА <img src={down} id="down-img" alt="not found"  draggable="false"></img></span>
+                    <div className="body">
+                       <ul className="filter-list">
+                            <li>
+                                <div className="checks">
+                                    <input type="checkbox"></input>
+                                    <label>Хетчбек</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div className="checks">
+                                    <input type="checkbox"></input>
+                                    <label>Седан</label>
+                                </div>
+                            </li>
+                       </ul>
                     </div>
                     <div className="line-filter"></div>
                 </div>

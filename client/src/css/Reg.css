@@ -11,3 +11,8 @@ label{
     font-size: 1vw;
     background-color: rgb(184, 35, 35);
 }
+#register-btn:hover{
+    background-color: white;
+    border: 1px solid rgb(184, 35, 35);
+    color: rgb(184, 35, 35);
+}

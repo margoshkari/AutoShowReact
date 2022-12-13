@@ -11,10 +11,10 @@ function RegisterApp(){
     return (
         <div className="page">
           <div className='form'>
-              <Link id="close-img" to="/">
-                    <img src={close} alt="not found"></img>
+              <Link id="close-img" to="/" draggable="false">
+                    <img src={close} alt="not found" draggable="false"></img>
                 </Link>
-            <img id="person-img" src={person} alt="not found"></img>
+            <img id="person-img" src={person} alt="not found" draggable="false"></img>
               <h1>Реєстрація</h1>
               <div className="fields">
                   <label>Ім'я</label>
@@ -31,7 +31,7 @@ function RegisterApp(){
                       onChange={handleInput}>
                   </PhoneInput>
               </div>
-                  <Link class="link" to="/login">
+                  <Link class="link" to="/login" draggable="false">
                     <button id="register-btn">ЗАРЕЄСТРУВАТИСЯ</button>
                   </Link>
           </div>
@@ -41,7 +41,7 @@ function RegisterApp(){
 function PhoneInput(props) {
     return (
       <InputMask 
-        mask='+38(999)999-99-99' 
+        mask='+38(099)999-99-99' 
         value={props.value} 
         onChange={props.onChange}>
       </InputMask>

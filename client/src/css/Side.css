@@ -1,0 +1,37 @@
+.side-panel{
+    width: auto;
+    height: auto;
+}
+.side-header{
+    padding: 5% 5% 5% 5%;
+    background-color: rgb(199, 195, 195);
+}
+.side-header > h4{
+    padding: 0;
+    margin: 0;
+}
+.filters{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(226, 226, 226);
+}
+.price-filter, .year-filter{
+    padding: 0 5% 0 5%;
+}
+.price-sp, .year-sp{
+    margin-left: 2%;
+}
+#min-price-inp, #max-price-inp, #min-year, #max-year{
+    height: 3vh;
+    width: 40%;
+    margin: 2% 2% 2% 2%;
+}
+.line-filter{
+    height: 1px;
+    margin: 2% 2% 2% 2%;
+    background-color: rgb(0, 0, 0);
+}
+.checks{
+    display: flex;
+    align-items: center;
+}

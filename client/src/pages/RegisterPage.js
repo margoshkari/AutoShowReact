@@ -17,15 +17,15 @@ function RegisterApp(){
             <img id="person-img" src={person} alt="not found" draggable="false"></img>
               <h1>Реєстрація</h1>
               <div className="fields">
-                  <label>Ім'я</label>
+                  <label className='form-label'>Ім'я</label>
                   <input type="text"></input>
-                  <label>Прізвище</label>
+                  <label className='form-label'>Прізвище</label>
                   <input type="text"></input>
-                  <label>По батькові</label>
+                  <label className='form-label'>По батькові</label>
                   <input type="text"></input>
-                  <label>Ел. пошта</label>
+                  <label className='form-label'>Ел. пошта</label>
                   <input type="email"></input>
-                  <label>Телефон</label>
+                  <label className='form-label'>Телефон</label>
                   <PhoneInput 
                       value={phone} 
                       onChange={handleInput}>

@@ -95,3 +95,13 @@
 .sell-list-item:hover, .service-list-item:hover, .about-list-item:hover{
     background: rgba(255, 255, 255, 0.30);
 }
+.main-content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main-content-pod{
+    display: flex;
+    justify-content: center;
+}

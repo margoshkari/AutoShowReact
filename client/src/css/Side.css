@@ -1,10 +1,11 @@
 .side-panel{
-    width: 90%;
+    width: max-content;
     height: auto;
+    margin-right: 5%;
 }
 .side-header{
     padding: 5% 5% 5% 5%;
-    background-color: rgb(199, 195, 195);
+    background-color: rgb(230, 227, 227);
 }
 .side-header > h4{
     padding: 0;
@@ -13,7 +14,7 @@
 .filters{
     display: flex;
     flex-direction: column;
-    background-color: rgb(226, 226, 226);
+    background-color: rgb(247, 247, 247);
 }
 .filter{
     padding: 0 5% 0 5%;

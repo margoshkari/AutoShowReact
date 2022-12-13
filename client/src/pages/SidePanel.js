@@ -1,4 +1,3 @@
-import "../css/Home.css";
 import "../css/Side.css";
 import down from "../source/chevron-down-outline.svg"
 

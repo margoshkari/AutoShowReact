@@ -1,4 +1,4 @@
-import "../css/Home.css";
+import "../css/Nav.css";
 import person from "../source/person-outline.svg";
 import { Link } from "react-router-dom";
 

@@ -10,7 +10,7 @@ function MainContentApp(){
         <div className="content">
             <div className="grid">
                 <div className="grid-item">
-                    <img className="car-img" src="https://vidi-automarket.com.ua/uploads/media/dc_car_gallery/0003/59/thumb_258040_dc_car_gallery_small.png"></img>
+                    <img className="car-img" src="https://vidi-automarket.com.ua/uploads/media/dc_car_gallery/0003/59/thumb_258040_dc_car_gallery_small.png" alt="not found"></img>
                     <div className="car-info">
                         <div className="car-header">
                             <h3>Nissan TIIDA</h3>

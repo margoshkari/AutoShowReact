@@ -22,7 +22,7 @@ function NavPanelApp() {
                       <li className="sell-list-item">Комісійний продаж</li>
                       <li className="sell-list-item">Викуп автомобіля</li>
                       <li className="sell-list-item">Оцінка вартості <span style={{color: "red"}}> online</span></li>
-                      <li className="sell-list-item">Комісійний продаж</li>
+                      <li className="sell-list-item">Обмін автомобіля</li>
                     </ul>
                 </li>
                 <li>Купити</li>

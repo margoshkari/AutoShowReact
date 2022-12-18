@@ -1,9 +1,9 @@
 import './css/App.css';
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import { createBrowserHistory } from "history";
-import Login from "./pages/LoginPage";
-import Register from "./pages/RegisterPage";
-import Home from "./pages/HomePage";
+import Login from "./components/LoginPage";
+import Register from "./components/RegisterPage";
+import Home from "./components/HomePage";
 
 function App() {
   const history = createBrowserHistory({ forceRefresh: true });

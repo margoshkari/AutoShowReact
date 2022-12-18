@@ -44,7 +44,7 @@ function LoginApp() {
         {/* <Link class="link" to="/" draggable="false"> */}
           <button id="login-btn" onClick={LogIn}>УВІЙТИ</button>
         {/* </Link> */}
-        <Link class="link" to="/register" draggable="false">
+        <Link className="link" to="/register" draggable="false">
           <button id="reg-btn">ЗАРЕЄСТРУВАТИСЯ</button>
         </Link>
       </div>

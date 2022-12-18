@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 
 function LoginApp() {
   function LogIn() {
-    let userlog = document.getElementById("userlog").value;
     fetch("/api/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        userlog: userlog,
+        userlog: document.getElementById("userlog").value,
+        password: document.getElementById("password-log").value,
       }),
     })
       .then((res) => res.json())
@@ -39,6 +39,8 @@ function LoginApp() {
         <div className="fields">
           <label>Телефон або ел. пошта</label>
           <input type="text" id="userlog"></input>
+          <label className="form-label">Пароль</label>
+          <input type="password" id="password-log"></input>
         </div>
 
         {/* <Link class="link" to="/" draggable="false"> */}

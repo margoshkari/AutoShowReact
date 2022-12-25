@@ -32,12 +32,22 @@ function LoginApp() {
     })
       .then((res) => res.json())
       .then((data) => {
-        if(data.isLogin){
+        if (data.isLogin) {
           history.push("/");
           history.go();
+        } else {
+          ShowValidationMessage();
         }
         console.log(data);
       });
+  }
+  function ShowValidationMessage() {
+    document.getElementById("userlog").style = "border: 1px solid red";
+    document.getElementById("password-log").style = "border: 1px solid red";
+
+    let span = document.getElementById("error_message");
+    span.style = "color: red;";
+    span.innerHTML = "Incorrect login or password";
   }
   return (
     <div className="page">
@@ -63,7 +73,7 @@ function LoginApp() {
           <label className="form-label">Пароль</label>
           <input type="password" id="password-log"></input>
         </div>
-
+        <span id="error_message"></span>
         {/* <Link class="link" to="/" draggable="false"> */}
         <button id="login-btn" onClick={LogIn}>
           УВІЙТИ

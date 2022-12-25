@@ -50,7 +50,17 @@ const validation = [
 
   check("phone").notEmpty().withMessage("Phone cannot be empty!"),
 ];
-
+const validationLogin = [
+  check("userlog").notEmpty().withMessage("Field cannot be empty!"),
+  check("password")
+    .notEmpty()
+    .withMessage("Password cannot be empty!")
+    .isLength({
+      min: 5,
+      max: 30,
+    })
+    .withMessage("Wrong password length"),
+];
 //REGISTRATION
 userRouter.post("/api/register", validation, async (req, res) => {
   const errors = validationResult(req);
@@ -83,7 +93,12 @@ userRouter.post("/api/register", validation, async (req, res) => {
 });
 
 //LOGIN
-userRouter.post("/api/login", validation, async (req, res) => {
+userRouter.post("/api/login", validationLogin, async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    console.log(errors);
+    return res.json({ error: errors });
+  }
   const { userlog, password } = req.body;
   var user = await Users.User.findOne({
     $or: [{ email: userlog }, { phone: userlog }],
@@ -93,7 +108,7 @@ userRouter.post("/api/login", validation, async (req, res) => {
     const hashPassword = user.password;
     bcrypt.compare(password, hashPassword).then(async (match) => {
       if (!match) {
-        return res.status(400).json({ error: "Incorrect password!" });
+        return res.json({ error: "Incorrect password!" });
       } else {
         const accessToken = token.createToken(user);
         res.cookie("access-token", accessToken, {
@@ -103,7 +118,7 @@ userRouter.post("/api/login", validation, async (req, res) => {
       }
     });
   } else {
-    return res.status(400).json({ error: "User doesn't exist" });
+    return res.json({ error: "User doesn't exist" });
   }
 });
 

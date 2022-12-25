@@ -5,10 +5,12 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const userRouter = require("./routes/UserRouter.js");
+const carRouter = require("./routes/CarRouter.js");
 
 app.use(express.json());
 app.use(cookieParser());
 app.use(userRouter);
+app.use(carRouter);
 
 
 

@@ -39,6 +39,17 @@ function HomeApp() {
         SetData([result.cars]);
       });
   }
+  function BuyCar(id) {
+    fetch("/api/delete", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ _id: id }),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        SetData([result.cars]);
+      });
+  }
   return (
     <div className="home-page">
       <NavPanel />
@@ -48,7 +59,7 @@ function HomeApp() {
         </h1>
         <div className="main-content-pod">
           <SidePanel filter={Filter} />
-          <MainContent data={data} />
+          <MainContent data={data} buyCar={BuyCar} />
         </div>
       </div>
     </div>

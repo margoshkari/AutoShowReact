@@ -115,4 +115,13 @@ carRouter.post("/api/filter", async (req, res) => {
   res.json({ cars: carsArray });
 });
 
+//DELETE CAR
+carRouter.post("/api/delete", async (req, res) => {
+  const { _id } = req.body;
+  await Cars.Car.remove({ _id: _id });
+  var carsArray = await Cars.Car.find({});
+  res.json({ cars: carsArray });
+});
+
+
 module.exports = carRouter;

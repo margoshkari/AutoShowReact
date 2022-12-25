@@ -59,17 +59,6 @@ function SidePanelApp({ filter }) {
             ></input>
           </div>
           <div className="line-filter"></div>
-          <div>
-            <div className="checks">
-              <input type="checkbox" id="spec-prop"></input>
-              <label>Показувати тільки спецпропозиції</label>
-            </div>
-            <div className="checks">
-              <input type="checkbox" id="pdv"></input>
-              <label>ПДВ включено</label>
-            </div>
-          </div>
-          <div className="line-filter"></div>
         </div>
         {/*YEAR FILTER */}
         <div className="filter">

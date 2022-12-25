@@ -5,7 +5,11 @@ import petrol from "../source/color-fill-outline.svg";
 import build from "../source/build-outline.svg";
 import cog from "../source/cog-outline.svg";
 
-function MainContentApp({data}) {
+function MainContentApp({ data, buyCar }) {
+  function Buy(e) {
+    let id = e.target.value;
+    buyCar(id);
+  }
   return (
     <div className="content">
       <div id="main-grid" className="grid">
@@ -77,7 +81,15 @@ function MainContentApp({data}) {
                     </div>
                     <p className="hryv">₴ {car_elem.price * 36.92}</p>
                     <p className="dollar">$ {car_elem.price}</p>
-                    <button id="detail-btn">ДЕТАЛІ</button>
+                    <button
+                      id="detail-btn"
+                      value={car_elem._id}
+                      onClick={(e) => {
+                        Buy(e);
+                      }}
+                    >
+                      КУПИТИ
+                    </button>
                   </div>
                 </div>
               ))

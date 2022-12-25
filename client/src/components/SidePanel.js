@@ -68,12 +68,18 @@ function SidePanelApp({ filter }) {
               <option selected disabled value="" hidden="hidden"></option>
               <option value="2022">2022</option>
               <option value="2021">2021</option>
+              <option value="2021">2020</option>
+              <option value="2021">2019</option>
+              <option value="2021">2018</option>
             </select>
             <span> </span>
             <select name="years" className="filter-inp" id="max-year">
               <option selected disabled value="" hidden="hidden"></option>
               <option value="2022">2022</option>
               <option value="2021">2021</option>
+              <option value="2021">2020</option>
+              <option value="2021">2019</option>
+              <option value="2021">2018</option>
             </select>
           </div>
           <div className="line-filter"></div>
@@ -101,7 +107,7 @@ function SidePanelApp({ filter }) {
         {/*BRAND FILTER */}
         <div className="filter brand-filter">
           <span className="sp im">
-            МАРКА{" "}
+            МАРКА
             <img
               src={down}
               id="down-img"
@@ -129,6 +135,16 @@ function SidePanelApp({ filter }) {
                     className="brand-checks"
                   ></input>
                   <label>BMW</label>
+                </div>
+              </li>
+              <li>
+                <div className="checks">
+                  <input
+                    type="checkbox"
+                    value="Subaru"
+                    className="brand-checks"
+                  ></input>
+                  <label>Subaru</label>
                 </div>
               </li>
             </ul>
@@ -166,6 +182,16 @@ function SidePanelApp({ filter }) {
                     value="Седан"
                   ></input>
                   <label>Седан</label>
+                </div>
+              </li>
+              <li>
+                <div className="checks">
+                  <input
+                    type="checkbox"
+                    className="body-checks"
+                    value="Кросовер"
+                  ></input>
+                  <label>Кросовер</label>
                 </div>
               </li>
             </ul>

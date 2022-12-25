@@ -45,8 +45,40 @@ function AddCarApp() {
     })
       .then((res) => res.json())
       .then((data) => {
+        if (!data.isAdded) {
+          ShowValidationMessage(
+            data.error.errors[0].param,
+            data.error.errors[0].msg
+          );
+        } else {
+          history.push("/sell");
+          history.go();
+        }
         console.log(data);
       });
+  }
+  function ShowValidationMessage(param, msg) {
+    let fields = document.getElementsByClassName("add-inp");
+    Array.from(fields).forEach((element) => {
+      element.style = "border: 1px solid black";
+    });
+    switch (param) {
+      case "name":
+        document.getElementById("car-name").style = "border: 1px solid red";
+        break;
+      case "image":
+        document.getElementById("car-image").style = "border: 1px solid red";
+        break;
+      case "price":
+        document.getElementById("car-price").style = "border: 1px solid red";
+        break;
+      case "probig":
+        document.getElementById("car-prob").style = "border: 1px solid red";
+        break;
+    }
+    let span = document.getElementById("error_message");
+    span.style = "color: red;";
+    span.innerHTML = msg;
   }
   return (
     <div className="page">
@@ -58,24 +90,24 @@ function AddCarApp() {
         <div className="add-fields">
           {/*NAME*/}
           <div className="add-field">
-            <label>Назва</label>
-            <input type="text" id="car-name"></input>
+            <label className="form-label">Назва</label>
+            <input type="text" id="car-name" className="add-inp"></input>
           </div>
           {/*IMAGE*/}
           <div className="add-field">
-            <label>Посилання на фото</label>
-            <input type="text" id="car-image"></input>
+            <label className="form-label">Посилання на фото</label>
+            <input type="text" id="car-image" className="add-inp"></input>
           </div>
           {/*PRICE*/}
           <div className="add-field">
-            <label>Ціна $</label>
-            <input type="number" id="car-price"></input>
+            <label className="form-label">Ціна $</label>
+            <input type="number" id="car-price" className="add-inp"></input>
           </div>
 
           {/*PROBIG*/}
           <div className="add-field">
             <label className="form-label">Пробіг</label>
-            <input type="number" id="car-prob"></input>
+            <input type="number" id="car-prob" className="add-inp"></input>
           </div>
 
           {/*YEAR*/}
@@ -85,6 +117,9 @@ function AddCarApp() {
               <option selected disabled value="" hidden="hidden"></option>
               <option value="2022">2022</option>
               <option value="2021">2021</option>
+              <option value="2021">2020</option>
+              <option value="2021">2019</option>
+              <option value="2021">2018</option>
             </select>
           </div>
 
@@ -95,6 +130,7 @@ function AddCarApp() {
               <option selected disabled value="" hidden="hidden"></option>
               <option value="Audi">Audi</option>
               <option value="BMW">BMW</option>
+              <option value="Subaru">Subaru</option>
             </select>
           </div>
 
@@ -105,6 +141,7 @@ function AddCarApp() {
               <option selected disabled value="" hidden="hidden"></option>
               <option>Хетчбек</option>
               <option>Седан</option>
+              <option>Кросовер</option>
             </select>
           </div>
 
@@ -115,6 +152,7 @@ function AddCarApp() {
               <option selected disabled value="" hidden="hidden"></option>
               <option>Бензин</option>
               <option>Дизель</option>
+              <option>Газ</option>
             </select>
           </div>
 
@@ -125,6 +163,7 @@ function AddCarApp() {
               <option selected disabled value="" hidden="hidden"></option>
               <option>Передній</option>
               <option>Задній</option>
+              <option>Повний</option>
             </select>
           </div>
 
@@ -138,7 +177,7 @@ function AddCarApp() {
             </select>
           </div>
         </div>
-
+        <span id="error_message"></span>
         <button id="add-btn" onClick={AddCar}>
           ДОДАТИ
         </button>

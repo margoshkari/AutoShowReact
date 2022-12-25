@@ -1,9 +1,39 @@
 const express = require("express");
 const carRouter = express.Router();
 const Cars = require("../models/CarModel.js");
+const { check, validationResult } = require("express-validator");
 
+const validation = [
+  check("name")
+    .notEmpty()
+    .withMessage("Name cannot be empty!")
+    .isLength({
+      min: 2,
+      max: 30,
+    })
+    .withMessage("Wrong name length"),
+
+  check("image").notEmpty().withMessage("Image cannot be empty!"),
+
+  check("price")
+    .notEmpty()
+    .withMessage("Price cannot be empty!")
+    .isInt({ min: 0 })
+    .withMessage("Price must be above zero!"),
+
+  check("probig")
+    .notEmpty()
+    .withMessage("Probig cannot be empty!")
+    .isInt({ min: 0, max: 999 })
+    .withMessage("Probig must be between 0 and 1000!"),
+];
 //ADD CAR
-carRouter.post("/api/add", async (req, res) => {
+carRouter.post("/api/add", validation, async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    console.log(errors);
+    return res.json({ error: errors });
+  }
   const {
     name,
     image,
@@ -122,6 +152,5 @@ carRouter.post("/api/delete", async (req, res) => {
   var carsArray = await Cars.Car.find({});
   res.json({ cars: carsArray });
 });
-
 
 module.exports = carRouter;

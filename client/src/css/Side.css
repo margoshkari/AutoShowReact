@@ -1,4 +1,5 @@
 .side-panel{
+    position: fixed;
     width: max-content;
     height: auto;
     margin-right: 5%;

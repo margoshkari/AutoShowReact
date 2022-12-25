@@ -79,7 +79,7 @@ function MainContentApp({ data, buyCar }) {
                         {car_elem.gearbox}
                       </span>
                     </div>
-                    <p className="hryv">₴ {car_elem.price * 36.92}</p>
+                    <p className="hryv">₴ {parseInt(car_elem.price * 36.92)}</p>
                     <p className="dollar">$ {car_elem.price}</p>
                     <button
                       id="detail-btn"

@@ -58,7 +58,9 @@ function HomeApp() {
           Оголошення про продаж б/у авто з пробігом в Києві
         </h1>
         <div className="main-content-pod">
-          <SidePanel filter={Filter} />
+          <div className="side">
+            <SidePanel filter={Filter} />
+          </div>
           <MainContent data={data} buyCar={BuyCar} />
         </div>
       </div>

@@ -1,0 +1,28 @@
+
+.add-inp{
+    height: 4vh;
+}
+#add-btn{
+    width: 20%;
+    height: 5vh;;
+    border: none;
+    color: white;
+    margin-top: 10%;
+    font-weight: bold;
+    font-size: 1vw;
+    background-color: rgb(184, 35, 35);
+}
+#add-btn:hover{
+    background-color: white;
+    border: 1px solid rgb(184, 35, 35);
+    color: rgb(184, 35, 35);
+}
+.add-fields{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 5rem;
+}
+.add-field{
+    display: flex;
+    flex-direction: column;
+}

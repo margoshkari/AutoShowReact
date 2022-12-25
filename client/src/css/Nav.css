@@ -1,0 +1,95 @@
+.nav-panel{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.nav-panf{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+#account-btn{
+    text-decoration: none;
+}
+#person-img-acc{
+    width: 40%;
+    height: auto;
+    display: flex;
+    font-weight: bold;
+    color: rgb(73, 73, 73);
+}
+.line{
+    width: 63%;
+    height: 1px;
+    background-color: rgb(73, 73, 73);
+    margin-bottom: 1%;
+}
+.nav-pan-sec{
+    width: 100%;
+    height: 7vh;
+    background: linear-gradient(90deg, #2a324a 0%, #849297 50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav-menu{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-weight: bold;
+    list-style: none;
+}
+.sell:hover .sell-list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2rem;
+    row-gap: 2rem;
+    z-index: 1;
+}
+.service:hover > .service-list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2rem;
+    row-gap: 2rem;
+    z-index: 1;
+}
+.about:hover > .about-list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2rem;
+    row-gap: 2rem;
+    z-index: 1;
+}
+.sell-list, .service-list, .about-list{
+    display: none;
+    position: absolute;
+    list-style: none; 
+    width: auto;
+    height: auto;
+    background: linear-gradient(90deg, #283048 -100%, #859398 80%);
+    padding: 2% 1% 1% 1%;
+}
+
+.service-list, .about-list{
+    background: linear-gradient(90deg, #859398 -100%, #859398 100%);
+}
+
+.sell-list-item, .service-list-item, .about-list-item{
+    width: 100%;
+    height: 4vh;;
+    border: none;
+    color: white;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.20);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sell-list-item:hover, .service-list-item:hover, .about-list-item:hover{
+    background: rgba(255, 255, 255, 0.30);
+}

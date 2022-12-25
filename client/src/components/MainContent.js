@@ -16,14 +16,15 @@ function MainContentApp() {
     GetCars();
   }, []);
   async function GetCars() {
-    await fetch("/api/profile", {
+    await fetch("/api/getcar", {
       method: "GET",
     })
       .then(function (response) {
         return response.json();
       })
       .then(function (result) {
-        SetData((oldArray) => [...oldArray, result]);
+        console.log(result.cars);
+        SetData((oldArray) => [...oldArray, result.cars]);
       });
   }
   return (
@@ -33,73 +34,75 @@ function MainContentApp() {
           ""
         ) : (
           <>
-            {data.map((item) => (
-              <div className="grid-item">
-                <img
-                  className="car-img"
-                  src="https://vidi-automarket.com.ua/uploads/media/dc_car_gallery/0003/59/thumb_258040_dc_car_gallery_small.png"
-                  alt="not found"
-                ></img>
-                <div className="car-info">
-                  <div className="car-header">
-                    <h3>Nissan TIIDA</h3>
-                    <h3>
-                      <span style={{ color: "red" }}>2010</span>
-                    </h3>
+            {data.map((car_item) =>
+              car_item.map((car_elem) => (
+                <div className="grid-item" key={car_elem}>
+                  <img
+                    className="car-img"
+                    src={car_elem.image}
+                    alt="not found"
+                  ></img>
+                  <div className="car-info">
+                    <div className="car-header">
+                      <h3>{car_elem.name}</h3>
+                      <h3>
+                        <span style={{ color: "red" }}>{car_elem.year}</span>
+                      </h3>
+                    </div>
+                    <span className="infw-pic">
+                      <img
+                        className="speedometer"
+                        src={speedometr}
+                        alt="not found"
+                        draggable="false"
+                      ></img>
+                      {car_elem.probig} тис. км
+                    </span>
+                    <div className="info-grid">
+                      <span className="infw-pic">
+                        <img
+                          className="icons"
+                          src={car}
+                          alt="not found"
+                          draggable="false"
+                        ></img>
+                        {car_elem.body}
+                      </span>
+                      <span className="infw-pic">
+                        <img
+                          className="icons"
+                          src={petrol}
+                          alt="not found"
+                          draggable="false"
+                        ></img>
+                        {car_elem.fuel}
+                      </span>
+                      <span className="infw-pic">
+                        <img
+                          className="icons"
+                          src={build}
+                          alt="not found"
+                          draggable="false"
+                        ></img>
+                        {car_elem.drive_type}
+                      </span>
+                      <span className="infw-pic">
+                        <img
+                          className="icons"
+                          src={cog}
+                          alt="not found"
+                          draggable="false"
+                        ></img>
+                        {car_elem.gearbox}
+                      </span>
+                    </div>
+                    <p className="hryv">₴ {car_elem.price * 36.92}</p>
+                    <p className="dollar">$ {car_elem.price}</p>
+                    <button id="detail-btn">ДЕТАЛІ</button>
                   </div>
-                  <span className="infw-pic">
-                    <img
-                      className="speedometer"
-                      src={speedometr}
-                      alt="not found"
-                      draggable="false"
-                    ></img>
-                    67 тис. км
-                  </span>
-                  <div className="info-grid">
-                    <span className="infw-pic">
-                      <img
-                        className="icons"
-                        src={car}
-                        alt="not found"
-                        draggable="false"
-                      ></img>
-                      Хетчбек
-                    </span>
-                    <span className="infw-pic">
-                      <img
-                        className="icons"
-                        src={petrol}
-                        alt="not found"
-                        draggable="false"
-                      ></img>
-                      1.6 Бензин
-                    </span>
-                    <span className="infw-pic">
-                      <img
-                        className="icons"
-                        src={build}
-                        alt="not found"
-                        draggable="false"
-                      ></img>
-                      Передній
-                    </span>
-                    <span className="infw-pic">
-                      <img
-                        className="icons"
-                        src={cog}
-                        alt="not found"
-                        draggable="false"
-                      ></img>
-                      Автомат
-                    </span>
-                  </div>
-                  <p className="hryv">₴ 340,000</p>
-                  <p className="dollar">$ 8,396</p>
-                  <button id="detail-btn">ДЕТАЛІ</button>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </>
         )}
       </div>

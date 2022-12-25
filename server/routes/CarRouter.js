@@ -40,4 +40,10 @@ carRouter.post("/api/add", async (req, res) => {
     });
 });
 
+//GET CAR
+carRouter.get("/api/getcar", async (req, res) => {
+  var carsArray = await Cars.Car.find({});
+  res.json({ cars: carsArray });
+});
+
 module.exports = carRouter;

@@ -3,7 +3,7 @@ const { sign, verify } = require("jsonwebtoken");
 const createToken = (user) => {
   const accessToken = sign(
     { username: user.username, id: user._id, role: user.role },
-    process.env.jwtstring
+    "stringforjwt"
   );
 
   return accessToken;

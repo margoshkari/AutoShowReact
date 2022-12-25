@@ -12,13 +12,14 @@ app.use(cookieParser());
 app.use(userRouter);
 app.use(carRouter);
 
-
-
-mongoose.connect(process.env.mongooseConnection, function (err, db) {
-  if (!err) {
-    console.log("Mongose connected");
-  } else console.log(err);
-});
+mongoose.connect(
+  "mongodb+srv://product:qwerty123@cluster0.xotx6dl.mongodb.net/autoshow",
+  function (err, db) {
+    if (!err) {
+      console.log("Mongose connected");
+    } else console.log(err);
+  }
+);
 app.listen(port, () => {
   console.log("Server start");
 });

@@ -46,4 +46,72 @@ carRouter.get("/api/getcar", async (req, res) => {
   res.json({ cars: carsArray });
 });
 
+//FILTER CAR
+carRouter.post("/api/filter", async (req, res) => {
+  const {
+    price_min,
+    price_max,
+    year_min,
+    year_max,
+    probig_min,
+    probig_max,
+    brandArray,
+    bodyArray,
+  } = req.body;
+  console.log(req.body);
+
+  let priceMatch = {};
+  if (price_min != "") {
+    priceMatch["$gte"] = price_min;
+  } else {
+    priceMatch["$gte"] = 0;
+  }
+  if (price_max != "") {
+    priceMatch["$lt"] = price_max;
+  }
+
+  let yearMatch = {};
+  if (year_min != "") {
+    yearMatch["$gte"] = year_min;
+  } else {
+    yearMatch["$gte"] = 0;
+  }
+  if (year_max != "") {
+    yearMatch["$lt"] = year_max;
+  }
+
+  let probigMatch = {};
+  if (probig_min != "") {
+    probigMatch["$gte"] = probig_min;
+  } else {
+    probigMatch["$gte"] = 0;
+  }
+  if (year_max != "") {
+    probigMatch["$lt"] = probig_max;
+  }
+
+  let brandMatch = {};
+  if (brandArray != "") {
+    brandMatch.brand = {};
+    brandMatch.brand["$in"] = brandArray;
+  }
+
+  let bodyMatch = {};
+  if (bodyArray != "") {
+    bodyMatch.body = {};
+    bodyMatch.body["$in"] = bodyArray;
+  }
+
+  var carsArray = await Cars.Car.find({
+    $and: [
+      { price: priceMatch },
+      { year: yearMatch },
+      { probig: probigMatch },
+      { brand: brandMatch.brand },
+      { body: bodyMatch.body },
+    ],
+  });
+  res.json({ cars: carsArray });
+});
+
 module.exports = carRouter;

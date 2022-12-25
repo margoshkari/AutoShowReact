@@ -4,29 +4,8 @@ import car from "../source/car-outline.svg";
 import petrol from "../source/color-fill-outline.svg";
 import build from "../source/build-outline.svg";
 import cog from "../source/cog-outline.svg";
-import React from "react";
 
-function MainContentApp() {
-  const [data, SetData] = React.useState([]);
-  const dataFetchedRef = React.useRef(false);
-  React.useEffect(() => {
-    if (dataFetchedRef.current) return;
-    dataFetchedRef.current = true;
-
-    GetCars();
-  }, []);
-  async function GetCars() {
-    await fetch("/api/getcar", {
-      method: "GET",
-    })
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (result) {
-        console.log(result.cars);
-        SetData((oldArray) => [...oldArray, result.cars]);
-      });
-  }
+function MainContentApp({data}) {
   return (
     <div className="content">
       <div id="main-grid" className="grid">
@@ -36,7 +15,7 @@ function MainContentApp() {
           <>
             {data.map((car_item) =>
               car_item.map((car_elem) => (
-                <div className="grid-item" key={car_elem}>
+                <div className="grid-item" key={car_elem._id}>
                   <img
                     className="car-img"
                     src={car_elem.image}

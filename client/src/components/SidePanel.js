@@ -1,7 +1,7 @@
 import "../css/Side.css";
 import down from "../source/chevron-down-outline.svg";
 
-function SidePanelApp() {
+function SidePanelApp({ filter }) {
   function Filter() {
     let year_min = document.getElementById("min-year");
     let year_max = document.getElementById("max-year");
@@ -19,24 +19,18 @@ function SidePanelApp() {
         bodyArray.push(body[index].value);
       }
     }
-    fetch("/api/filter", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        price_min: document.getElementById("min-price-inp").value,
-        price_max: document.getElementById("max-price-inp").value,
-        year_min: year_min.options[year_min.selectedIndex].text,
-        year_max: year_max.options[year_max.selectedIndex].text,
-        probig_min: document.getElementById("min-probig-inp").value,
-        probig_max: document.getElementById("max-probig-inp").value,
-        brandArray: brandArray,
-        bodyArray: bodyArray,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
+    let obj = {};
+    obj.innerObj = {
+      price_min: document.getElementById("min-price-inp").value,
+      price_max: document.getElementById("max-price-inp").value,
+      year_min: year_min.options[year_min.selectedIndex].text,
+      year_max: year_max.options[year_max.selectedIndex].text,
+      probig_min: document.getElementById("min-probig-inp").value,
+      probig_max: document.getElementById("max-probig-inp").value,
+      brandArray: brandArray,
+      bodyArray: bodyArray,
+    };
+    filter(obj.innerObj);
   }
   return (
     <div className="side-panel">

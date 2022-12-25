@@ -107,10 +107,11 @@ carRouter.post("/api/filter", async (req, res) => {
       { price: priceMatch },
       { year: yearMatch },
       { probig: probigMatch },
-      { brand: brandMatch.brand },
-      { body: bodyMatch.body },
+      brandMatch.brand ? { brand: brandMatch.brand } : {},
+      bodyMatch.body ? { body: bodyMatch.body } : {},
     ],
   });
+  console.log(carsArray);
   res.json({ cars: carsArray });
 });
 

@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const CarScheme = new Schema({
   name: String,
+  image: String,
   price: Number,
   probig: Number,
   year: Number,

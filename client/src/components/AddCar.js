@@ -20,6 +20,34 @@ function AddCarApp() {
         }
       });
   }, []);
+  function AddCar() {
+    let year = document.getElementById("car-year");
+    let brand = document.getElementById("car-brand");
+    let body = document.getElementById("car-body");
+    let fuel = document.getElementById("car-fuel");
+    let drive_type = document.getElementById("car-drive");
+    let gearbox = document.getElementById("car-gearbox");
+    fetch("/api/add", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: document.getElementById("car-name").value,
+        image: document.getElementById("car-image").value,
+        price: document.getElementById("car-price").value,
+        probig: document.getElementById("car-prob").value,
+        year: year.options[year.selectedIndex].text,
+        brand: brand.options[brand.selectedIndex].text,
+        body: body.options[body.selectedIndex].text,
+        fuel: fuel.options[fuel.selectedIndex].text,
+        drive_type: drive_type.options[drive_type.selectedIndex].text,
+        gearbox: gearbox.options[gearbox.selectedIndex].text,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  }
   return (
     <div className="page">
       <div className="form">
@@ -32,6 +60,11 @@ function AddCarApp() {
           <div className="add-field">
             <label>Назва</label>
             <input type="text" id="car-name"></input>
+          </div>
+          {/*IMAGE*/}
+          <div className="add-field">
+            <label>Посилання на фото</label>
+            <input type="text" id="car-image"></input>
           </div>
           {/*PRICE*/}
           <div className="add-field">
@@ -106,7 +139,9 @@ function AddCarApp() {
           </div>
         </div>
 
-        <button id="add-btn">ДОДАТИ</button>
+        <button id="add-btn" onClick={AddCar}>
+          ДОДАТИ
+        </button>
       </div>
     </div>
   );

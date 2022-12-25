@@ -31,7 +31,7 @@ function NavPanelApp() {
           document.getElementById("text-btn-acc").innerText = "Увійти";
         }
       });
-  });
+  }, []);
   function LogOut() {
     fetch("/api/logout")
       .then((res) => res.json())
@@ -58,7 +58,9 @@ function NavPanelApp() {
           <li className="sell">
             Продати
             <ul className="sell-list">
-              <li className="sell-list-item">Комісійний продаж</li>
+              <Link id="account-btn" to="/sell">
+                <li className="sell-list-item">Комісійний продаж</li>
+              </Link>
               <li className="sell-list-item">Викуп автомобіля</li>
               <li className="sell-list-item">
                 Оцінка вартості <span style={{ color: "red" }}> online</span>

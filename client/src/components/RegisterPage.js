@@ -24,7 +24,7 @@ function RegisterApp() {
           history.go();
         }
       });
-  });
+  }, []);
   function Register() {
     fetch("/api/register", {
       method: "POST",

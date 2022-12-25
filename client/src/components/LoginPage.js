@@ -20,7 +20,7 @@ function LoginApp() {
           history.go();
         }
       });
-  });
+  }, []);
   function LogIn() {
     fetch("/api/login", {
       method: "POST",

@@ -2,8 +2,25 @@ import "../css/Log.css";
 import person from "../source/person-outline.svg";
 import close from "../source/close-outline.svg";
 import { Link } from "react-router-dom";
+import React from "react";
+import { createBrowserHistory } from "history";
 
 function LoginApp() {
+  const history = createBrowserHistory({ forceRefresh: true });
+  const dataFetchedRef = React.useRef(false);
+  React.useEffect(() => {
+    if (dataFetchedRef.current) return;
+    dataFetchedRef.current = true;
+
+    fetch("/api/profile")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.isLogin) {
+          history.push("/");
+          history.go();
+        }
+      });
+  });
   function LogIn() {
     fetch("/api/login", {
       method: "POST",
@@ -15,6 +32,10 @@ function LoginApp() {
     })
       .then((res) => res.json())
       .then((data) => {
+        if(data.isLogin){
+          history.push("/");
+          history.go();
+        }
         console.log(data);
       });
   }
@@ -44,7 +65,9 @@ function LoginApp() {
         </div>
 
         {/* <Link class="link" to="/" draggable="false"> */}
-          <button id="login-btn" onClick={LogIn}>УВІЙТИ</button>
+        <button id="login-btn" onClick={LogIn}>
+          УВІЙТИ
+        </button>
         {/* </Link> */}
         <Link className="link" to="/register" draggable="false">
           <button id="reg-btn">ЗАРЕЄСТРУВАТИСЯ</button>

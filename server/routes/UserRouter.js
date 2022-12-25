@@ -107,4 +107,18 @@ userRouter.post("/api/login", validation, async (req, res) => {
   }
 });
 
+//PROFILE
+userRouter.get("/api/profile", token.validateToken, (req, res) => {
+  res.json({ isLogin: true });
+});
+
+//LOGOUT
+userRouter.get("/api/logout", token.validateToken, (req, res) => {
+  const accessToken = req.cookies["access-token"];
+  res.cookie("access-token", accessToken, {
+    maxAge: 0,
+  });
+  res.json("Success");
+});
+
 module.exports = userRouter;

@@ -4,10 +4,27 @@ import { useState } from "react";
 import person from "../source/person-outline.svg";
 import close from "../source/close-outline.svg";
 import { Link } from "react-router-dom";
+import React from "react";
+import { createBrowserHistory } from "history";
 
 function RegisterApp() {
   const [phone, setPhone] = useState("");
   const handleInput = ({ target: { value } }) => setPhone(value);
+  const history = createBrowserHistory({ forceRefresh: true });
+  const dataFetchedRef = React.useRef(false);
+  React.useEffect(() => {
+    if (dataFetchedRef.current) return;
+    dataFetchedRef.current = true;
+
+    fetch("/api/profile")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.isLogin) {
+          history.push("/");
+          history.go();
+        }
+      });
+  });
   function Register() {
     fetch("/api/register", {
       method: "POST",
@@ -59,18 +76,17 @@ function RegisterApp() {
           <label className="form-label">Ел. пошта</label>
           <input type="email" id="user-email"></input>
           <label className="form-label">Телефон</label>
-          <PhoneInput
-            value={phone}
-            onChange={handleInput}
-          ></PhoneInput>
+          <PhoneInput value={phone} onChange={handleInput}></PhoneInput>
           <label className="form-label">Пароль</label>
           <input type="password" id="user-password"></input>
         </div>
-        {/* <Link class="link" to="/login" draggable="false"> */}
+
         <button id="register-btn" onClick={Register}>
           ЗАРЕЄСТРУВАТИСЯ
         </button>
-        {/* </Link> */}
+        <Link class="link" to="/login" draggable="false">
+          Вже зареєструвалися?
+        </Link>
       </div>
     </div>
   );
